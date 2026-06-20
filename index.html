@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pouya’s Coffee Mug | Support</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #FFF8E7;
+            --text-color: #1a1a1a;
+            --border-color: #000000;
+            
+            /* Color Palette */
+            --yellow: #FFD93D;
+            --green: #6BCB77;
+            --blue: #4D96FF;
+            --linkedin-blue: #0077B5; /* Official LinkedIn Color */
+            --github-dark: #24292e;
+            --white: #ffffff;
+            
+            --shadow-length: 6px;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--bg-color);
+            /* Stylish dot pattern */
+            background-image: radial-gradient(var(--border-color) 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: var(--text-color);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 4px solid var(--border-color);
+            border-radius: 30px;
+            padding: 40px 30px;
+            max-width: 480px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 12px 12px 0px var(--border-color);
+            position: relative;
+            animation: slideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(60px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .avatar-container {
+            position: relative;
+            width: 130px;
+            height: 130px;
+            margin: -85px auto 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .avatar {
+            width: 100%;
+            height: 100%;
+            background-color: var(--yellow);
+            border: 4px solid var(--border-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 5px 5px 0px rgba(0,0,0,0.2);
+            overflow: hidden;
+            z-index: 10;
+        }
+
+        .status-badge {
+            position: absolute;
+            bottom: 5px;
+            right: 0;
+            background: #FF6B6B;
+            color: white;
+            font-size: 12px;
+            font-weight: 900;
+            padding: 5px 10px;
+            border: 3px solid var(--border-color);
+            border-radius: 20px;
+            transform: rotate(-10deg);
+            z-index: 11;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin: 10px 0;
+            line-height: 1;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            -webkit-text-stroke: 1.5px var(--border-color); 
+            color: var(--white);
+            text-shadow: 4px 4px 0px var(--border-color);
+        }
+
+        p.header-text {
+            font-size: 1.1rem;
+            line-height: 1.5;
+            margin-bottom: 30px;
+            font-weight: 700;
+            color: #444;
+        }
+
+        /* --- Buttons --- */
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 18px 25px;
+            margin-bottom: 18px;
+            text-decoration: none;
+            color: var(--border-color);
+            font-weight: 800;
+            font-size: 1.15rem;
+            border: 3px solid var(--border-color);
+            border-radius: 16px;
+            transition: all 0.15s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            background: white;
+            box-shadow: var(--shadow-length) var(--shadow-length) 0px var(--border-color);
+            transform: translate(0, 0);
+        }
+
+        .btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: calc(var(--shadow-length) + 2px) calc(var(--shadow-length) + 2px) 0px var(--border-color);
+        }
+
+        .btn:active {
+            transform: translate(var(--shadow-length), var(--shadow-length));
+            box-shadow: 0px 0px 0px var(--border-color);
+        }
+
+        .btn-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .icon-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon-box svg {
+            width: 26px;
+            height: 26px;
+            display: block;
+        }
+        
+        .arrow { font-size: 22px; line-height: 0; }
+
+        /* Specific Colors */
+        .btn-rial { background-color: var(--green); }
+        .btn-crypto { background-color: var(--blue); }
+        
+        .btn-github { 
+            background-color: var(--github-dark); 
+            color: var(--white);
+        }
+        .btn-github .icon-box svg { fill: var(--white); }
+        .btn-github .arrow { color: var(--white); }
+
+        .btn-linkedin {
+            background-color: var(--linkedin-blue);
+            color: var(--white);
+        }
+        .btn-linkedin .icon-box svg { fill: var(--white); }
+        .btn-linkedin .arrow { color: var(--white); }
+
+
+        /* Divider */
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 25px 0;
+            color: var(--border-color);
+            font-weight: 900;
+            font-size: 0.9rem;
+            opacity: 0.5;
+        }
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            height: 3px;
+            background: var(--border-color);
+            border-radius: 2px;
+        }
+        .divider span { margin: 0 15px; }
+
+
+        /* Footer */
+        .copyright {
+            margin-top: 25px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            opacity: 0.9;
+        }
+        
+        .copyright a {
+            text-decoration: none;
+            color: inherit;
+            border-bottom: 2px dashed var(--border-color);
+            transition: all 0.2s;
+        }
+        
+        .copyright a:hover {
+            background-color: var(--yellow);
+            border-bottom-style: solid;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="glass-panel">
+        <div class="avatar-container">
+            <div class="avatar">
+                <svg width="65" height="65" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 8H19C20.1046 8 21 8.89543 21 10C21 11.1046 20.1046 12 19 12H18V8Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 8H18V14C18 15.6569 16.6569 17 15 17H5C3.34315 17 2 15.6569 2 14V8Z" stroke="black" stroke-width="2" stroke-linejoin="round"/>
+                    <path d="M6 1L6 4" stroke="black" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M10 1L10 4" stroke="black" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M14 1L14 4" stroke="black" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <div class="status-badge">DEV</div>
+        </div>
+
+        <h1>Mahdi’S<br>COFFEE MUG</h1>
+        
+        <p class="header-text">
+            Every great code starts with a sip of coffee.<br>
+            Keep the servers running & the bugs away!
+        </p>
+
+        <a href="https://daramet.com/d_mahdi47?webintent&donate=100000&message=thanks" target="_blank" class="btn btn-rial">
+            <div class="btn-content">
+                <div class="icon-box">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4C2.89543 4 2 4.89543 2 6V18C2 19.1046 2.89543 20 4 20H20C21.1046 20 22 19.1046 22 18V6C22 4.89543 21.1046 4 20 4Z" stroke="none" fill="currentColor"/><path d="M2 10H22" stroke="white" stroke-width="2"/><path d="M6 14H10" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+                </div>
+                Rial Support
+            </div>
+            <span class="arrow">➜</span>
+        </a>
+
+        <!-- <a href="https://pay.oxapay.com/14009511" target="_blank" class="btn btn-crypto">
+            <div class="btn-content">
+                <div class="icon-box">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M16 12C16 11.2 15.5 10.5 14.8 10.2C15.2 9.9 15.5 9.4 15.5 8.8C15.5 7.6 14.5 7 13 7H9V17H13.5C15 17 16 16.1 16 14.8C16 13.9 15.5 13.2 14.8 12.8L16 12Z" stroke="white" stroke-width="1.5" fill="none"/><path d="M9 12H14.5" stroke="white" stroke-width="1.5"/><path d="M11 6V18" stroke="white" stroke-width="1.5"/></svg>
+                </div>
+                Crypto Support
+            </div>
+            <span class="arrow">➜</span>
+        </a> -->
+
+        <div class="divider">
+            <span>CONNECT</span>
+        </div>
+
+        <a href="https://github.com/mahdi7800" target="_blank" class="btn btn-github">
+             <div class="btn-content">
+                <div class="icon-box">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.484 2 12.017C2 16.448 5.865 20.2 10.039 21.052C10.5 21.135 10.688 20.848 10.688 20.582C10.688 20.354 10.681 19.605 10.675 18.847C7.098 19.648 6.294 17.581 6.007 16.76C5.845 16.335 5.122 15.006 4.789 14.823C4.517 14.673 4.128 14.31 4.777 14.298C5.385 14.286 5.82 14.872 5.964 15.111C6.671 16.336 7.794 15.986 8.232 15.772C8.303 15.244 8.51 14.885 8.742 14.68C5.787 14.335 2.68 13.169 2.68 7.962C2.68 6.476 3.2 5.253 4.053 4.303C3.914 3.96 3.444 2.569 4.187 0.675C4.187 0.675 5.314 0.312 7.878 2.062C8.948 1.762 10.093 1.612 11.233 1.617C12.373 1.612 13.52 1.762 14.593 2.062C17.155 0.312 18.28 0.675 18.28 0.675C19.025 2.569 18.556 3.96 18.417 4.303C19.272 5.253 19.79 6.476 19.79 7.962C19.79 13.181 16.678 14.331 13.712 14.664C14.011 14.925 14.286 15.448 14.286 16.246C14.286 17.388 14.275 18.307 14.275 18.582C14.275 18.852 14.467 19.143 14.94 19.05C19.108 18.196 23 14.445 23 12.018C23 6.484 18.522 2 12 2Z" fill="white"/></svg>
+                </div>
+                Check my Code
+            </div>
+            <span class="arrow">➜</span>
+        </a>
+
+        <a href="www.linkedin.com/in/mahdi-davoudi-b3754a1b4" target="_blank" class="btn btn-linkedin">
+            <div class="btn-content">
+                <div class="icon-box">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill="white"/></svg>
+                </div>
+                Connect on LinkedIn
+            </div>
+            <span class="arrow">➜</span>
+        </a>
+
+        <div class="copyright">
+            © <a href="https://https://shanulwp.ir" target="_blank">Mahdi davoodi</a> 2026
+        </div>
+
+    </div>
+
+</body>
+</html>
